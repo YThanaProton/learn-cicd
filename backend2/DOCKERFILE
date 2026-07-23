@@ -1,0 +1,16 @@
+# Backend: Node.js + Express (server.js)
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Install dependencies first (better layer caching)
+COPY package*.json ./
+RUN npm install
+
+# Copy source
+COPY . .
+
+# Backend listens on 5000
+EXPOSE 5000
+
+CMD ["npm", "start"]

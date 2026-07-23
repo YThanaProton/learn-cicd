@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  backend2:
+    build:
+      context: ./backend2
+      dockerfile: DOCKERFILE
+    image: <dockerhub-username>/<index-no>-backend:latest
+    ports:
+      - "5000:5000"
+
+  frontend2:
+    build:
+      context: ./frontend2
+      dockerfile: DOCKERFILE
+    image: <dockerhub-username>/<index-no>-frontend:latest
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend2
