@@ -7,7 +7,7 @@ pipeline {
     INDEX_NO        = '1234567890'
 }
 
-    sstages {
+    stages {
         stage('Pull Git Repository') {
             steps { git branch: 'main', url: 'https://github.com/YThanaProton/learn-cicd.git' }
         }
